@@ -1,0 +1,30 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title">Paiment</h4>
+      </div>
+
+  <div class="modal-body">
+    <h4> Voulez-vous procéder </b>? </h4>
+  </div>
+          <div class="modal-footer">
+
+             <button type="button" class="btn btn-success" ng-click="$hide();">
+                    <i class="fa fa-credit-card"></i> Oui (J'en suis sure)
+              </button>
+
+              <button type="button" class="btn btn-danger" ng-click="$parent.undo(clickedProduct.t,clickedProduct.p);$hide();">
+                   <i class="fa fa-times"></i> Annuler (désolé faute de clique)
+              </button>
+
+             
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>

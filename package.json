@@ -1,0 +1,28 @@
+{
+  "name": "FileExplorer",
+  "description": "Simple file explorer.",
+  "version": "0.1.1",
+  "main": "index.html",
+  "window": {
+    "toolbar": true,
+    "show": true,
+    "width": 660,
+    "height": 500
+  },
+  "webkit": {
+    "plugin": true
+  },
+  "dependencies": {
+    "body-parser": "latest",
+    "connect-flash": "latest",
+    "cookie-parser": "latest",
+    "ejs": "latest",
+    "express": "~4.5.1",
+    "express-session": "latest",
+    "method-override": "latest",
+    "morgan": "latest",
+    "nedb": "^1.1.2",
+    "node-webkit-builder": "^1.0.13",
+    "nodemailer": "latest"
+  }
+}

@@ -1,0 +1,43 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" ng-click="$hide()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Facture</h4>
+      </div>
+
+  <div class="modal-body">
+    <h4> Voulez-vous une facture pour l'eleve <b>{{toPayStudent.firstname}} </b> <b>{{toPayStudent.lastname}} </b>? </h4>
+  </div>
+
+   
+   <div class="btn-group" ng-model="radiot" bs-radio-group>
+        <label class="btn btn-default"><input type="radio" name="radiot" class="btn btn-default" value="T0" checked> T0</label>
+        <label class="btn btn-default"><input type="radio" name="radiot" class="btn btn-default" value="T1"> T1</label>
+        <label class="btn btn-default"><input type="radio" name="radiot" class="btn btn-default" value="T2"> T2</label>
+        <label class="btn btn-default"><input type="radio" name="radiot" class="btn btn-default" value="T3"> T3</label>
+
+      
+       
+    </div>
+  
+          <div class="modal-footer">
+
+          <button type="button" ng-disabled=" $scope.testpaye == 0" class="btn btn-success" ng-click="factureTable(toPayStudent);$hide();">
+                    <i class="fa fa-credit-card"></i> Oui
+              </button>
+
+              <button type="button" class="btn btn-danger" ng-click="$hide();">
+                   <i class="fa fa-times"></i> Non
+              </button>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  

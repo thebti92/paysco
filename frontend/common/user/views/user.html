@@ -1,0 +1,39 @@
+<button ng-click="loadInsertedUser()" type="button" class="btn btn-primary pull-right" data-animation="am-fade-and-scale" data-template="frontend/common/user/views/user.create.html" data-placement="center" bs-modal="modal">
+    <i class="fa fa-user-plus"></i> Créer Utilisateur
+</button>
+
+<br/><br/>
+
+<table ng-table="tableParams" class="table table-bordered table-hover" show-filter="true">
+  <tr ng-repeat="user in $data" ng-click="confirm(user)">
+    <td title="'Username'" class="ng-table-group" filter="{ 'username': 'text' }" sortable="'username'">
+    	{{user.username}}
+	</td>
+    <td title="'Password'" class="ng-table-group" filter="{ 'password': 'text' }">
+    	{{user.password}}
+	</td>
+    <td title="'Admin'" class="ng-table-group" filter="{ 'admin': 'text' }">
+    	{{user.admin}}
+	</td>
+    <td title="'Email'" class="ng-table-group" filter="{ 'email': 'text' }" sortable="'email'">
+    	{{user.email}}
+    </td>
+    <td title="'Asp'" class="ng-table-group" filter="{ 'asp': 'text' }">
+    	{{user.asp}}
+    </td>
+ 
+
+
+    <td title="'Operation'" style="width:10%;">
+       <button ng-click="loadEditedUser(user)" type="button" class="btn btn-default" data-animation="am-fade-and-scale" data-template="frontend/common/user/views/user.edit.html" data-placement="center" bs-modal="modal">
+                 <i class="fa fa-pencil-square-o"></i> 
+             </button>
+
+             <button ng-click="loadDeletedUser(user)" type="button" class="btn btn-danger" data-animation="am-fade-and-scale" data-template="frontend/common/user/views/user.confirm.html" data-placement="center" bs-modal="modal">
+                 <i class="fa fa-trash"></i> 
+             </button>
+    </td>
+
+
+  </tr>
+</table>

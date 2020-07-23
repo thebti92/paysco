@@ -1,0 +1,123 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+        <span> <button type="button" class="close" aria-label="Close" ng-click="$hide()"><span aria-hidden="true">&times;</span></button></span>
+                <h4 class="modal-title">Detail Historique</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <b>Niveau:</b> <span ng-bind="toShowPayment._levelId" />
+                        <br/> <b>Classe:</b> <span ng-bind="toShowPayment.class" />
+                        <br/> <b>Nom:</b> <span ng-bind="toShowPayment.firstname" />
+                        <br/> <b>Prenom:</b> <span ng-bind="toShowPayment.lastname" />
+                        </br>
+                        </br>
+                        <span> <b>Mode de paiement:</b> <span ng-bind="toShowPayment.modePay" />
+        </span>
+                        <br/>
+                        <br/>
+                        <table ng-if="toShowPayment.amount.cheques.length>0" class="table table-bordered">
+                            <tr>
+                                <th>Numéro</th>
+                                <th>Montant</th>
+                                <th>Banque</th>
+                                <th>Date Echeance</th>
+                            </tr>
+                            <tr ng-repeat="cheque in toShowPayment.amount.cheques track by cheque.number">
+                                <td>
+                                    {{cheque.number}}
+                                </td>
+                                <td>
+                                    {{cheque.amount}} DT
+                                </td>
+                                <td>
+                                    {{cheque.bank}}
+                                </td>
+                                <td>
+                                    {{cheque.dateE | date:"dd/MM/yyyy"}}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        
+
+                        <div ng-if="toShowPayment.currentPayedProd.t0.length>0">
+                            Trimestre 0:
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Produit</th>
+                                    <th>Prix</th>
+                                </tr>
+                                <tr ng-repeat="prod in toShowPayment.currentPayedProd.t0">
+                                    <td>{{prod.product}}</td>
+                                    <td>{{prod.price}} DT</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div ng-if="toShowPayment.currentPayedProd.t1.length>0">
+                            Trimestre 1:
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Produit</th>
+                                    <th>Prix</th>
+                                </tr>
+                                <tr ng-repeat="prod in toShowPayment.currentPayedProd.t1">
+                                    <td>{{prod.product}}</td>
+                                    <td>{{prod.price}} DT</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div ng-if="toShowPayment.currentPayedProd.t2.length>0">
+                            Trimestre 2:
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Produit</th>
+                                    <th>Prix</th>
+                                </tr>
+                                <tr ng-repeat="prod in toShowPayment.currentPayedProd.t2">
+                                    <td>{{prod.product}}</td>
+                                    <td>{{prod.price}} DT</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div ng-if="toShowPayment.currentPayedProd.t3.length>0">
+                            Trimestre 3:
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Produit</th>
+                                    <th>Prix</th>
+                                </tr>
+                                <tr ng-repeat="prod in toShowPayment.currentPayedProd.t3">
+                                    <td>{{prod.product}}</td>
+                                    <td>{{prod.price}} DT</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span ng-if="toShowPayment.amount.brutAmount!=0"><b>Espece payé</b> : {{toShowPayment.amount.brutAmount}} DT </span>
+                    <br/>
+                    <span ng-if="toShowPayment.amount.cheques.length>0"><b> Cheque(s) payé(s) :</b> {{chequeAmount}} DT </span>
+                    <span class="pull-right space-40"><b>Total payé</b> : {{chequeAmount+toShowPayment.amount.brutAmount}} DT</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" ng-click="printOneHistoryFire();$hide();">
+                  <i class="fa fa-print"></i>
+                    Imprimer
+              </button>
+                <!--
+
+              <button type="button" class="btn btn-danger" ng-click="$parent.imprimer(toDeleteStudent);$hide();">
+                    <i class="fa fa-trash-o"></i> Imprimer
+              </button> -->
+
+            </div>
+        </div>
+    </div>
+</div>

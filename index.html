@@ -1,0 +1,99 @@
+<!doctype html>
+<html ng-app="module.app">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title ng-if="user.object.admin==true" ng-bind="($title || 'Titre pas encore réglé!') + ' - Joconde - Connecté en tantque Admin'">si le ng-bind est vide alors ceci est affiché!</title>
+
+    <title ng-if="user.object.admin==false" ng-bind="($title || 'Titre pas encore réglé!') + ' - Joconde - Connecté en tantque Agent'">si le ng-bind est vide alors ceci est affiché!</title>
+
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/login.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- JS -->
+    <script src="libs/jquery/dist/jquery.min.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/underscore/underscore-min.js"></script>
+
+     <script src="libs/jQuery-Plugin-To-Export-Table-Data-To-CSV-File-table2csv/dist/table2csv.min.js"></script>
+
+      <script src="libs/jQuery-Plugin-To-Export-Table-Data-To-CSV-File-table2csv/dist/table2csv.js"></script>
+    <!-- <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script> -->
+    <script src="libs/ui-router/release/angular-ui-router.min.js"></script>
+    <script src="libs/angular-cookies/angular-cookies.min.js"></script>
+    <script src="libs/angular-resource/angular-resource.min.js"></script>
+    <script src="libs/angular-scroll/angular-scroll.min.js"></script>
+    <link rel="stylesheet" href="libs/angular-chart.js/dist/angular-chart.css">
+    <script src="libs/Chart.js/Chart.min.js"></script>
+    <script src="libs/angular-chart.js/dist/angular-chart.min.js"></script>
+    <!-- angular moment includes -->
+    <script src="libs/moment/min/moment.min.js"></script>
+    <script src="libs/angular-moment/angular-moment.min.js"></script>
+    <!-- ngstrap -->
+    <link rel="stylesheet" href="libs/angular-motion/dist/angular-motion.min.css">
+    </script>
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    </script>
+    <script src="libs/angular-animate/angular-animate.min.js"></script>
+    <script src="libs/angular-strap/dist/angular-strap.min.js"></script>
+    <script src="libs/angular-strap/dist/angular-strap.tpl.min.js"></script>
+    <!-- NG Grid 1-->
+    <script src="libs/ng-table/dist/ng-table.js"></script>
+    <link rel="stylesheet" href="libs/ng-table/dist/ng-table.min.css" />
+
+   
+    <!-- Xeditable -->
+    <!--		<link href="libs/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
+		<script src="libs/angular-xeditable/dist/js/xeditable.js"></script>
+-->
+    <!-- ngStrap -->
+    <script src="libs/angular-strap/dist/angular-strap.min.js"></script>
+    <script src="libs/angular-strap/dist/angular-strap.tpl.min.js"></script>
+    <script src="libs/angular-ui-router-title/angular-ui-router-title.js"></script>
+    <script src="config/Constant.js"></script>
+    <!-- login -->
+    <script src="frontend/common/login/LoginController.js"></script>
+    <script src="frontend/common/login/LoginService.js"></script>
+    <!-- toolbar -->
+    <script src="frontend/common/toolbar/ToolbarService.js"></script>
+    <!-- User -->
+    <script src="frontend/common/user/UserController.js"></script>
+    <script src="frontend/common/user/UserService.js"></script>
+    <!-- level -->
+    <script src="frontend/components/level/LevelController.js"></script>
+    <script src="frontend/components/level/LevelService.js"></script>
+    <!-- student -->
+    <script src="frontend/components/student/StudentController.js"></script>
+    <script src="frontend/components/student/StudentService.js"></script>
+    <!-- payment -->
+    <script src="frontend/components/payment/PaymentController.js"></script>
+    <script src="frontend/components/payment/PaymentService.js"></script>
+    <script src="frontend/components/payment/FactureService.js"></script>
+    <!-- history -->
+    <script src="frontend/components/history/HistoryController.js"></script>
+    <!-- Cheque --> 
+    <script src="frontend/components/cheque/ChequeController.js"></script>
+    <!-- daily -->
+    <script src="frontend/components/daily/DailyController.js"></script>
+
+    <script src="frontend/components/payment/FactureController.js"></script>
+
+      <!-- invoice -->
+     <script src="frontend/components/invoice/InvoiceController.js"></script>
+     <script src="frontend/components/invoice/InvoiceService.js"></script>
+
+
+
+    <!--angular app -->
+    <script src="frontend/app.js"></script>
+    <script src="frontend/route.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+            <div ui-view></div>
+    </div>
+</body>
+
+</html>

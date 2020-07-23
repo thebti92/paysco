@@ -1,0 +1,46 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" ng-click="$hide()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Créer Utilisateur : </h4>
+      </div>
+
+  <div class="modal-body">
+
+       
+        <form role="form">
+          Nom:    <input type="text" class="form-control" ng-model="toInserUser.username"/>
+          Password: <input type="text" class="form-control" ng-model="toInserUser.password"/>
+          
+          Admin:  <br/><div class="btn-group" ng-model="toInserUser.admin" bs-radio-group>
+                    <label class="btn btn-default"><input type="radio" class="btn btn-default" value="true">
+                     Oui
+                    </label>
+                    <label class="btn btn-default"><input type="radio" class="btn btn-default" value="false">
+                     Non
+                    </label>
+  
+                  </div>
+                  <br/>
+          Email: <input type="text" class="form-control" ng-model="toInserUser.email"/>
+          Asp: <input type="text" class="form-control" ng-model="toInserUser.asp"/>
+        </form>
+
+</div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" ng-click="$hide()">
+            <i class="fa fa-times"></i> Annuler
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="$parent.insertUser(toInserUser);$hide();">
+            <i class="fa fa-user-plus"></i> Créer 
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</div>

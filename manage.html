@@ -1,0 +1,30 @@
+<div class="col-md-2 hidee">
+    <div class="list-group" ng-if="user.loggedin">
+        <li class="list-group-item list-group-item-success"><b> Menu </b></li>
+        
+        <a class="list-group-item" href="#" ui-sref="manage.student">
+            <li class="fa fa-users lg"> </li> Ajouter Eleve</a>
+       
+        <a class="list-group-item" href="#" ui-sref="manage.payment">
+            <li class="fa fa-cart-plus lg"> </li> Paiment</a>
+       
+        <a class="list-group-item" ui-sref="manage.history" href="#">
+            <li class="fa fa-history lg"> </li> Historique</a>
+
+        <a class="list-group-item" ui-sref="manage.daily" href="#">
+           <i class="fa fa-calendar lg"></i> </li> Journal
+        </a>
+
+        <a class="list-group-item" href="#" ui-sref="manage.unpayed">
+            <li class="fa fa-exclamation-triangle lg"> </li> Impayés</a>
+       
+        <a class="list-group-item" href="#" ui-sref="manage.cheque">
+            <li class="fa fa-exclamation-triangle lg"> </li> Voir chéques</a>
+
+        <a class="list-group-item" ui-sref="manage.invoice" href="#">
+            <li class="fa fa-history lg"> </li> Voir factures</a>
+    </div>
+</div>
+<div class="col-md-10">
+    <div ui-view></div>
+</div>

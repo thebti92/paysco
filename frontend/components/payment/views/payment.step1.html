@@ -1,0 +1,224 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" ng-click="$hide()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Produits pour :  <b>{{toPayStudent.firstname}} {{toPayStudent.lastname}}</b></h4>
+      </div>
+
+  <div class="modal-body">
+
+        <form role="form">
+          <table class="table table-bordered"  ng-model="toPayStudent.products" bs-checkbox-group>
+            <thead>
+              <tr>
+                <th>
+                #
+                </th>
+                <th>
+                  Trimestre 0
+                </th>
+                <th>
+                  Trimestre 1
+                </th>
+                <th>
+                  Trimestre 2
+                </th>
+                <th>
+                  Trimestre 3
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>
+                  Scolarité
+                </th>
+
+                 <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t0.s" ng-click="confirmProduct('t0','s')" type="checkbox" value="t0.s"></label>
+                 </td>
+
+
+
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t1.s" ng-click="confirmProduct('t1','s')" type="checkbox" value="t1.s"></label>
+
+                </td>
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t2.s" ng-click="confirmProduct('t2','s')" type="checkbox" value="t2.s"></label>
+
+                </td>
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t3.s" ng-click="confirmProduct('t3','s')" type="checkbox" value="t3.s"></label>
+
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Cantine
+                </th>
+
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t0.c" ng-click="confirmProduct('t0','c')" type="checkbox" value="t0.c"></label>
+
+                </td>
+
+
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t1.c" ng-click="confirmProduct('t1','c')" type="checkbox" value="t1.c"></label>
+
+                </td>
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t2.c" ng-click="confirmProduct('t2','c')" type="checkbox" value="t2.c"></label>
+
+                </td>
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t3.c" ng-click="confirmProduct('t3','c')" type="checkbox" value="t3.c"></label>
+
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Panier
+                </th>
+
+                 <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t0.p" ng-click="confirmProduct('t0','p')" type="checkbox" value="t0.p"></label>
+
+                </td>
+
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t1.p" ng-click="confirmProduct('t1','p')" type="checkbox" value="t1.p"></label>
+
+                </td>
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t2.p" ng-click="confirmProduct('t2','p')" type="checkbox" value="t2.p"></label>
+
+                </td>
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t3.p" ng-click="confirmProduct('t3','p')" type="checkbox" value="t3.p"></label>
+
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Garderie
+                </th>
+
+                 <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t0.g" ng-click="confirmProduct('t0','g')" type="checkbox" value="t0.g"></label>
+
+                </td>
+
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t1.g" ng-click="confirmProduct('t1','g')" type="checkbox" value="t1.g"></label>
+
+                </td>
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t2.g" ng-click="confirmProduct('t2','g')" type="checkbox" value="t2.g"></label>
+
+                </td>
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t3.g" ng-click="confirmProduct('t3','g')" type="checkbox" value="t3.g"></label>
+
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Activités
+                </th>
+
+
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t0.a" ng-click="confirmProduct('t0','a')" type="checkbox" value="t0.a"></label>
+                </td>
+
+
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t1.a" ng-click="confirmProduct('t1','a')" type="checkbox" value="t1.a"></label>
+                </td>
+                <td>
+                    <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t2.a" ng-click="confirmProduct('t2','a')" type="checkbox" value="t2.a"></label>
+                </td>
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.products.t3.a" ng-click="confirmProduct('t3','a')" type="checkbox" value="t3.a"></label>
+                </td>
+
+
+
+              </tr>
+             
+            </tbody>
+
+          </table>
+        </form>
+<hr> 
+
+<form role="form">
+<table class="table table-bordered"  ng-model="toPayStudent.timbre" bs-checkbox-group>
+            <thead>
+              <tr>
+                <th>
+                #
+                </th>
+                <th>
+                  Trimestre 0
+                </th>
+                <th>
+                  Trimestre 1
+                </th>
+                <th>
+                  Trimestre 2
+                </th>
+                <th>
+                  Trimestre 3
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <th>
+                  Timbre
+                </th>
+
+
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.timbre.t0" ng-click="confirmTimbre('t0')" type="checkbox" value="t0"></label>
+                </td>
+
+
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.timbre.t1" ng-click="confirmTimbre('t1')" type="checkbox" value="t1"></label>
+                </td>
+                <td>
+                    <label class="btn btn-default"><input ng-disabled="toPayStudent.timbre.t2" ng-click="confirmTimbre('t2')" type="checkbox" value="t2"></label>
+                </td>
+                <td>
+                  <label class="btn btn-default"><input ng-disabled="toPayStudent.timbre.t3" ng-click="confirmTimbre('t3')" type="checkbox" value="t3"></label>
+                </td>
+
+
+
+              </tr>
+            </tbody>
+
+          </table>
+        </form>
+
+</div>
+
+      <div class="modal-footer">
+       <!-- <button type="button" class="btn btn-danger" ng-click="$hide()">
+            <i class="fa fa-times"></i> Annuler
+        </button> -->
+        <button type="button" class="btn btn-default" ng-click="$parent.paymentStep2(toPayStudent);$hide();">
+            <i class="fa fa-forward"></i> Etape suivante
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</div>

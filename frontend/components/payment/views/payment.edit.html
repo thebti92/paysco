@@ -1,0 +1,169 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true" style="overflow: auto">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header ">
+              
+         
+ <div class="row">
+
+    <div class="col-md-6">
+    <h5>Prenom:</h5><input type="text" class="form-control" ng-model="payment.firstname" />
+
+    <h5>Nom:</h5><input type="text" class="form-control" ng-model="payment.lastname" /><br>
+    </div>
+    <div class="col-md-6">
+    <h5>Niveau:</h5> <select ng-model="payment._levelId" class="form-control" ng-options="level._id as level._id for level in levels">
+                  </select>
+
+     <h5>Classe:</h5><select ng-model="payment.class" class="form-control" ng-options="class._id as class._id for class in classes">
+                  </select>
+
+    </div>
+</div>
+                    <hr>
+              
+                    <span ng-class="{'bg-muted': entredAmount()=== 0,
+                             'bg-warning': entredAmount() < amountttc && entredAmount() != 0,
+                             'bg-success': entredAmount() === amountttc,
+                             'bg-danger': entredAmount() > amountttc}">    
+                             
+                                     <button type="button" class="close" aria-label="Close" ng-click="$hide()"><span aria-hidden="true">&times;</span></button>
+
+                             <b> Votre Caisse :</b></span>
+
+                    <span ng-class="{'text-muted': entredAmount()=== 0,
+                             'text-warning': entredAmount() < amountttc && entredAmount() != 0,
+                             'text-success': entredAmount() === amountttc,
+                             'text-danger': entredAmount() > amountttc}">    
+                             {{entredAmount()}} 
+                    </span>
+            
+                <span class="pull-right space-40">Total à payer HT : <b>{{amount}} DT</b></span>
+                <span class="pull-right space-40">Total à payer TTC<b style="color: red">({{tax}}%)</b>: <b>{{amountttc}} DT</b></span></h4>
+           
+            </div>
+
+            <div class="modal-body">
+                <form name="paymentF">
+                    Espece:
+                    <input type="number" class="form-control" ng-model="payment.amount.brutAmount" />
+                    <hr/>
+                    <div class="row">
+                        <div class="col-md-6">Numero Cheque:
+                            <input type="number" class="form-control" ng-model="toAddCheque.number" />
+                        </div>
+                        <div class="col-md-6">
+                            Montant Cheque:
+                            <div class="input-group">
+                                <div class="input-group-addon">$</div>
+                                <input type="number" class="form-control" ng-model="toAddCheque.amount" placeholder="Montant...">
+                                <div class="input-group-addon"><b>DT</b></div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <i class="fa fa-university"></i> Banque:
+                            <input type="text" class="form-control" ng-model="toAddCheque.bank" />
+                        </div>
+
+             
+
+
+                        <div class="col-md-6">
+
+                        <div class="form-group" ng-class="{'has-error': datepickerForm.date2.$invalid}">
+                                <label class="control-label"><i class="fa fa-calendar"></i> Date Echéance:</label>
+                                <input type="text" class="form-control" ng-model="toAddCheque.dateE" data-date-format="yyyy-MM-dd" data-date-type="date" data-autoclose="1" name="date2" cs-date-to-iso bs-datepicker>
+                            </div>
+                        </div>
+               
+
+                  <div class="col-md-4"  style="visibility: hidden" >
+
+                        <div class="col-md-6">
+                            <i class="fa fa-university"></i> firstname:
+                            <input type="text" class="form-control" ng-model="toAddCheque.firstname"  disabled="" />
+                        </div>
+
+                        <div class="col-md-6">
+                            <i class="fa fa-university"></i> lastname:
+                            <input type="text" class="form-control" ng-model="toAddCheque.lastname" disabled="" />
+                       </div>
+                 </div>
+                       
+
+
+   
+
+                    </div>
+                    <button ng-click="addChequePayment()" type="button" style="margin-bottom:20px;" class="btn btn-success pull-right"><i class="fa fa-plus"></i></button>
+                    <table ng-table="tableChequeParams" class="table table-bordered table-hover">
+                    <tr ng-repeat="cheque in payment.amount.cheques track by cheque.number">
+                            <td title="'Numero Cheque'" class="ng-table-group">
+                                {{cheque.number}}
+                                </td>
+                            <td title="'Montant Cheque'" class="ng-table-group">
+                                {{cheque.amount}}
+                            </td>
+                            <td title="'Banque'" class="ng-table-group">
+                                {{cheque.bank}}
+                            </td>
+
+                             
+                            <td title="'Date Echéance'" class="ng-table-group">
+                                {{cheque.dateE | date:"dd/MM/yyyy"}}
+                            </td>
+
+                            <td title="'Statut'" class="ng-table-group">
+                                {{cheque.optradio}}
+                            </td>
+
+                            <td title="'Nom'" class="ng-table-group">
+                                {{cheque.firstname}}
+                            </td>
+                            <td title="'Premon'" class="ng-table-group">
+                                {{cheque.lastname}}
+                            </td>
+
+                            <td title="''">
+                                <button ng-click="removeCheque(cheque)" type="button" class="btn btn-danger">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <div class="row">
+                     <div class="col-md-6">
+
+                        <div  class="form-group" ng-class="{'has-error': datepickerForm.date2.$invalid}">
+                                        <label  class="control-label pull-left"><i class="fa fa-calendar-o" ></i> Date Paiement: (Admin)</label>
+
+                                       <input ng-disabled="user.object.admin==false"  type="text" class="form-control" ng-model="payment.datePayment" data-date-format="yyyy-MM-dd" data-date-type="date" data-autoclose="1" name="date2" cs-date-to-iso bs-datepicker >
+
+
+
+                        </div>
+                                         </div>
+
+                                         <div class="col-md-6">
+                                            <br/>
+                    
+           
+            <button ng-disabled="amountttc==0 || payment.datePayment == null || payment.amount.brutAmount == null" type="button" class="btn btn-primary" ng-click="$parent.updatePayment(payment);$hide();">
+                            <i class="fa fa fa-paypal"></i> modifier
+                        </button>
+
+                     </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

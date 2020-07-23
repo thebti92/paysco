@@ -1,0 +1,69 @@
+  <div ng-class="{'hidee': manage.unpayed}">
+
+
+  <div>
+
+    <div>
+      <img class="rounded"  style="border-radius: 6px"  src="assets/img/photo-login.png" alt="" height="120" width="100" align="right">
+    </div>
+   
+     <div>
+      
+      <h5>Etablissement de base privé</h5>
+       <h5>LA JOCONDE JUMELLE</h5>
+       <h5>RESIDENCE ELYES DAR FADHAL LA SOUKRA</h5>
+       <h5><i><b>Tel</b>: 26 784 003</i></h5>
+    </div>
+    
+</div>
+ 
+<br/>
+    <br/>
+    <br/>
+    <br/>
+    
+
+           <h4 align="center">Cher Parent d'élève <b> {{student.lastname}} {{student.firstname}} ({{student._levelId}} {{student.class}})</b></h4>
+           
+<h5>
+    <p align="center">Nous vous informons que le délai de paiement de la <b>{{tranche}}</b>
+
+   <span>         <!--   <b> {{payment.currentPayedProd}}</b> -->
+          
+           <b ng-if="student.products.t0.s ==false">T0</b>
+            <span ng-repeat="prod in student.products.t0.s" >
+              {{prod.product}} 1
+            </span>
+
+       <!--     <br ng-if="student.products.t0.s ==true"/> -->
+
+            <b ng-if="student.products.t1.s ==false && student.products.t0.s ==true">T1</b>
+            <span ng-repeat="student.products.t1.s" >
+              {{prod.product}} 2
+            </span>
+
+       <!--     <br ng-if="student.products.t1.s ==true"/> -->
+
+            <b ng-if="student.products.t2.s ==false && student.products.t1.s ==true">T2</b>
+            <span ng-repeat="prod in student.products.t2.s">
+              {{prod.product}} 3
+            </span>
+
+        <!--    <br ng-if="student.products.t2.s ==true"/> -->
+
+            <b ng-if="student.products.t3.s ==false && student.products.t2.s ==true">T3</b>
+            <span ng-repeat="prod in student.products.t2.s">
+              {{prod.product}} 4
+            </span>
+           
+        </span>
+
+
+        <br/>a expiré. Pour cela, la direction vous invite à régler la scolarité de votre enfant dans les plus brefs délais..</p>
+    <br/>
+    <br/>
+</h5>
+
+    <h5 style="margin-left:80%;">L’économat</h5>
+
+ </div>

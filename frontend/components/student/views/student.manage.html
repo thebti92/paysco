@@ -1,0 +1,38 @@
+
+
+<button ng-click="loadInsertedStudent()" type="button" class="btn btn-primary pull-right" data-animation="am-fade-and-scale" data-template="frontend/components/student/views/student.create.html" data-placement="center" bs-modal="modal">
+    <i class="fa fa-user-plus"></i> Créer Eleve
+</button>
+
+<br/><br/>
+<table ng-table="tableParams"  class="table table-bordered table-hover">
+     <tr ng-repeat="student in $data">
+         <td title="'Niveau'" class="ng-table-group" filter="{ '_levelId': 'select' }" filter-data="levels" sortable="'_levelId'">
+           {{student._levelId}}
+          </td>
+         <td title="'Classe'" class="ng-table-group" filter="{ 'class': 'select' }" filter-data="classes" sortable="'class'">
+           {{student.class}}
+          </td>
+          <td title="'Code'" class="ng-table-group" filter="{ 'code': 'text' }" sortable="'code'">
+           {{student.code}}
+          </td>
+
+
+         <td title="'Nom'" class="ng-table-group" filter="{ 'firstname': 'text' }" sortable="'firstname'">
+           {{student.firstname}}
+          </td>
+         <td title="'Prenom'" class="ng-table-group" filter="{ 'lastname': 'text' }" sortable="'lastname'">
+           {{student.lastname}}
+          </td>
+
+      
+         <td title="'Operation'">
+             <button ng-click="loadEditedStudent(student)" type="button" class="btn btn-default" data-animation="am-fade-and-scale" data-template="frontend/components/student/views/student.edit.html" data-placement="center" bs-modal="modal">
+                 <i class="fa fa-pencil-square-o"></i>
+             </button>
+             <button ng-click="loadDeletedStudent(student)" type="button" class="btn btn-danger" data-animation="am-fade-and-scale" data-template="frontend/components/student/views/student.confirm.html" data-placement="center" bs-modal="modal">
+                 <i class="fa fa-trash"></i> 
+             </button>
+         </td>
+     </tr>
+</table>

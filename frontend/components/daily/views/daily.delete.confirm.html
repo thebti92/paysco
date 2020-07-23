@@ -1,0 +1,29 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" ng-click="$hide()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Ipression</h4>
+      </div>
+
+  <div class="modal-body">
+    <h4> Voulez-vous lancer <b>l'impression</b>? </h4>
+  </div>
+          <div class="modal-footer">
+
+              <button type="button" class="btn btn-success" ng-click="$hide();">
+                   <i class="fa fa-times"></i> Annuler
+              </button>
+
+              <button type="button" class="btn btn-danger" ng-click="$parent.imprimer(toDeleteStudent);$hide();">
+                    <i class="fa fa-trash-o"></i> Imprimer
+              </button>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>

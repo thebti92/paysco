@@ -1,0 +1,31 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" ng-click="$hide()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Paiment</h4>
+      </div>
+
+  <div class="modal-body">
+    <h4> Voulez-vous procéder le paiment pour l'eleve <b>{{toPayStudent.firstname}} </b>? </h4>
+  </div>
+          <div class="modal-footer">
+
+               <button type="button" class="btn btn-success" ng-click="$parent.paymentStep1();$hide();">
+                    <i class="fa fa-credit-card"></i> Oui
+              </button>
+
+              <button type="button" class="btn btn-danger" ng-click="$hide();">
+                   <i class="fa fa-times"></i> Non
+              </button>
+
+           
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>

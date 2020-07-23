@@ -1,0 +1,221 @@
+<div ng-class="{'hidee': printOneHistory}">
+
+
+  <div class="onlyPrint">
+   
+  <div>
+    <h4 style="margin-left:80%;">le {{now | date:"dd/MM/yyyy"}}</h4>
+  </div>
+   <br>
+  <div>
+
+    <div>
+      <img class="rounded"  style="border-radius: 6px"  src="assets/img/photo-login.png" alt="" height="150" width="150" align="right">
+    </div>
+ <!--   <div>
+      
+      <h4>Etablissement Privé pour</h4>
+       <h4>l'enseignement de Base</h4>
+       <h4>ECOLE LA JOCONDE EL MOUROUJ</h4>
+       <h4>RUE  IBN MANDHOUR - EL MOUROUJ 1</h4>
+       <h5>Code TVA : 0570495J/N/P000</h5>
+       <h5><i><b>Tel</b>: 26 784 001</i></h5>
+    </div>
+  -->
+    
+</div>
+  </div> 
+
+<center>
+</center>
+<br>
+ 
+
+<div class="row hidee">
+
+  <div class="col-md-4">
+      <div class="form-group" ng-class="{'has-error': datepickerForm.date2.$invalid}">
+        <label class="control-label pull-left"><i class="fa fa-calendar-o"></i> Date Debut: </label>
+        <input readonly  type="text" class="form-control" ng-model="search.dateDebutPayment" data-date-format="yyyy-MM-dd" data-date-type="date" data-autoclose="1" name="date2" cs-date-to-iso bs-datepicker>
+      </div> 
+  </div>
+
+
+  <div class="col-md-4">
+    <div class="form-group" ng-class="{'has-error': datepickerForm.date2.$invalid}">
+        <label class="control-label pull-left"><i class="fa fa-calendar-o"></i> Date Fin: </label>
+        <input readonly type="text" class="form-control" ng-model="search.dateFinPayment" data-date-format="yyyy-MM-dd" data-date-type="date" data-autoclose="1" name="date2" cs-date-to-iso bs-datepicker>
+      </div>
+  </div>
+
+  
+
+  <div class="col-md-4">
+  
+
+   <b>Opération : </b><br/>
+
+     <div class="btn-group" ng-model="radios" bs-radio-group>
+        <label class="btn btn-default"><input type="radio" class="btn btn-default" value="all"> Tous</label>
+        <label class="btn btn-default"><input type="radio" class="btn btn-default" value="s"> S</label>
+        <label class="btn btn-default"><input type="radio" class="btn btn-default" value="c"> C</label>
+        <label class="btn btn-default"><input type="radio" class="btn btn-default" value="p"> P</label>
+        <label class="btn btn-default"><input type="radio" class="btn btn-default" value="g"> G</label>
+        <label class="btn btn-default"><input type="radio" class="btn btn-default" value="a"> A</label>
+     </div>
+
+    <button type="button" ng-click="filterTable()" class="btn btn-success pull-right">Chercher</button>
+  </div>
+
+</div>
+
+
+  <button type="button" ng-click="exportTableToCSV('members.csv')" class="btn btn-success pull-right">Export Excel</button>
+
+
+<table ng-table="tableParams"  class="table table-bordered table-hover printable" id="table1" border="2">
+
+     <tr ng-repeat="payment in $data track by $index" ng-click="showDetail(payment);">
+         <td title="'Niveau'" class="ng-table-group" filter="{ '_levelId': 'select' }"filter-data="levels" sortable="'_levelId'">
+           {{payment._levelId}}
+          </td>
+         <td title="'Classe'" class="ng-table-group" filter="{ 'class': 'select' }" filter-data="classes"sortable="'class'">
+           {{payment.class}}
+          </td>
+         <td title="'Nom'" class="ng-table-group" filter="{ 'firstname': 'text' }" sortable="'firstname'">
+           {{payment.firstname}}
+          </td>
+         <td title="'Prenom'" class="ng-table-group" filter="{ 'lastname': 'text' }" sortable="'lastname'">
+           {{payment.lastname}}
+          </td>
+      <td title="'Mode Paiment'" class="ng-table-group" filter="{ 'modePay': 'select' }" sortable="'modePay'" filter-data="modePay">
+           {{payment.modePay}}
+
+     </td>
+         
+     
+ 
+
+         <td title="'Date'" class="ng-table-group" sortable="'datePayment'">
+           {{payment.datePayment | date:"dd/MM/yyyy"}}
+          </td>
+
+          <td title="'Montant en TTC'" class="ng-table-group" sortable="'amount.payedAmount'">
+          <span ng-if="radios=='all'"> {{payment.payedAmount}}</span>
+
+         <span ng-if="radios!='all'">
+             
+
+               <b ng-if="payment.currentPayedProd.t0.length!=0">T0:</b>
+              <span ng-repeat="prod in payment.currentPayedProd.t0" ng-if="radios=='all'||radios==prod.product">
+                {{prod.price}} 
+              </span>
+
+
+
+               <br ng-if="payment.currentPayedProd.t0.length!=0"/>
+              <b ng-if="payment.currentPayedProd.t1.length!=0">T1:</b>
+              <span ng-repeat="prod in payment.currentPayedProd.t1" ng-if="radios=='all'||radios==prod.product">
+                {{prod.price}} 
+              </span>
+
+              <br ng-if="payment.currentPayedProd.t1.length!=0"/>
+
+              <b ng-if="payment.currentPayedProd.t2.length!=0">T2:</b>
+              <span ng-repeat="prod in payment.currentPayedProd.t2" ng-if="radios=='all'||radios==prod.product">
+                {{prod.price}} 
+              </span>
+
+              <br ng-if="payment.currentPayedProd.t2.length!=0"/>
+
+              <b ng-if="payment.currentPayedProd.t3.length!=0">T3:</b>
+              <span ng-repeat="prod in payment.currentPayedProd.t3" ng-if="radios=='all'||radios==prod.product">
+                {{prod.price}} 
+              </span>
+          </span>
+      
+
+          </td>
+      
+          <td title="'Produits'" class="ng-table-group" style="width:10%;">
+         <!--   <b> {{payment.currentPayedProd}}</b> -->
+          
+           <b ng-if="payment.currentPayedProd.t0.length!=0">T0:</b>
+            <span ng-repeat="prod in payment.currentPayedProd.t0" ng-if="radios=='all'||radios==prod.product">
+              {{prod.product}} 
+            </span>
+
+            <br ng-if="payment.currentPayedProd.t0.length!=0"/>
+
+            <b ng-if="payment.currentPayedProd.t1.length!=0">T1:</b>
+            <span ng-repeat="prod in payment.currentPayedProd.t1" ng-if="radios=='all'||radios==prod.product">
+              {{prod.product}} 
+            </span>
+
+            <br ng-if="payment.currentPayedProd.t1.length!=0"/>
+
+            <b ng-if="payment.currentPayedProd.t2.length!=0">T2:</b>
+            <span ng-repeat="prod in payment.currentPayedProd.t2" ng-if="radios=='all'||radios==prod.product">
+              {{prod.product}} 
+            </span>
+
+            <br ng-if="payment.currentPayedProd.t2.length!=0"/>
+
+            <b ng-if="payment.currentPayedProd.t3.length!=0">T3:</b>
+            <span ng-repeat="prod in payment.currentPayedProd.t3" ng-if="radios=='all'||radios==prod.product">
+              {{prod.product}} 
+            </span>
+           
+          </td>
+
+
+<!--
+         <td title="'Prix'" width="200">
+             <button ng-click="loadEditedStudent(payment)" type="button" class="btn btn-default" data-animation="am-fade-and-scale" data-template="frontend/components/payment/views/payment.edit.html" data-placement="center" bs-modal="modal">
+                 <i class="fa fa-pencil-square-o"></i> Voir/Edit prix
+             </button>
+         </td>
+         <td title="'Supprimer'" width="200">
+
+             <button ng-click="loadDeletedStudent(payment)" type="button" class="btn btn-danger" data-animation="am-fade-and-scale" data-template="frontend/components/payment/views/payment.confirm.html" data-placement="center" bs-modal="modal">
+                 <i class="fa fa-trash"></i> Supprimer
+             </button>
+         </td>-->
+
+     </tr>
+
+
+      
+
+      <tr><td colspan="7"><center><b style="color: green">TOTAL réel HT</b></center></td><td><b style="color: green">
+     <span ng-if="radios=='all'">{{rtotaleHt}}</span>
+  <!--   <span ng-if="radios!='all'">{{rtotaleProductHt}}</span></b></td></tr> -->
+
+    <span ng-if="radios!='all'">indisponible</span></b></td></tr>      
+
+      <tr><td colspan="7"><center><b style="color: green">Taxe</b></center></td><td><b style="color: green">
+     <span >{{tax}}%</span>
+    </b></td></tr>
+
+
+
+     <tr><td colspan="7"><center><b style="color: green">TOTAL réel TTC</b></center></td><td><b style="color: green">
+     <span ng-if="radios=='all'">{{rtotale}}</span>
+     <span ng-if="radios!='all'">indisponible</span></b></td></tr>
+
+  <!--  <span ng-if="radios!='all'">{{rtotaleProduct}}</span></b></td></tr> --> 
+
+
+         
+ 
+
+</table>
+
+
+
+<hr>
+
+
+
+
+</div>

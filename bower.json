@@ -1,0 +1,36 @@
+{
+  "name": "Joconde",
+  "version": "0.0.0",
+  "homepage": "https://github.com/smartytwiti/SMS",
+  "authors": [
+    "smartytwiti <marwen109@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Chart.js": "~1.0.2",
+    "angular-animate": "~1.4.1",
+    "angular-chart.js": "~0.7.2",
+    "angular-cookies": "~1.4.1",
+    "angular-moment": "~0.10.1",
+    "angular-motion": "~0.4.2",
+    "angular-resource": "~1.4.1",
+    "angular-scroll": "~0.7.1",
+    "angular-strap": "~2.2.4",
+    "angular-xeditable": "~0.1.9",
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.3.0",
+    "moment": "~2.10.3",
+    "ng-table": "~1.0.0",
+    "ui-router": "~0.2.15",
+    "underscore": "~1.8.3"
+  }
+}

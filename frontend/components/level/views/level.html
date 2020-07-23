@@ -1,0 +1,26 @@
+
+
+<button ng-click="loadInsertedLevel()" type="button" class="btn btn-primary pull-right" data-animation="am-fade-and-scale" data-template="frontend/components/level/views/level.create.html" data-placement="center" bs-modal="modal">
+    <i class="fa fa-graduation-cap"></i> Créer Niveau
+</button>
+
+<br/><br/>
+<table ng-table  class="table table-bordered table-hover">
+     <tr ng-repeat="level in levels">
+         <td data-title="'Niveau'">
+           {{level._id}}
+          </td>
+
+         <td data-title="'Prix'" width="200" class="text-center">
+             <button ng-click="loadEditedLevel(level)" type="button" class="btn btn-default" data-animation="am-fade-and-scale" data-template="frontend/components/level/views/level.edit.html" data-placement="center" bs-modal="modal">
+                 <i class="fa fa-pencil-square-o"></i> Modifier
+             </button>
+         </td>
+         <td data-title="'Supprimer'" width="200" class="text-center">
+
+             <button ng-click="loadDeletedLevel(level)" type="button" class="btn btn-danger" data-animation="am-fade-and-scale" data-template="frontend/components/level/views/level.confirm.html" data-placement="center" bs-modal="modal">
+                 <i class="fa fa-trash"></i> Supprimer
+             </button>
+         </td>
+     </tr>
+</table>

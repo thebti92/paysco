@@ -1,0 +1,177 @@
+<!-- <div ng-class="{'hidee': printoneFacture}">  -->
+  <div>
+    <h4 style="margin-left:80%;" >le {{now | date:"dd/MM/yyyy"}}</h4>
+  </div>
+<br>
+  <div>
+
+     <div>
+      <img class="rounded"  style="border-radius: 6px"  src="assets/img/photo-login.png" alt="" height="120" width="100" align="right">
+    </div>
+    <div>
+      
+      <h5>Etablissement de base privé</h5>
+       <h5>LA JOCONDE JUMELLE</h5>
+       <h5>RESIDENCE ELYES DAR FADHAL LA SOUKRA</h5>
+       <h5>Code TVA : 1120556J.A.P.000</h5>
+       <h5><i><b>Tel</b>: 26 784 003</i></h5>
+    </div>
+<!--
+    <div>
+      <img src="assets/img/duplicata.png" alt="" height="150" width="280" style="margin-left:65%;">
+    </div>
+  -->
+    
+</div>
+
+<div class="row hidee">
+
+  <div class="col-md-4"  style="visibility: hidden" >
+      <div class="form-group" ng-class="{'has-error': datepickerForm.date2.$invalid}">
+       
+        <label class="control-label pull-left"><i class="fa fa-calendar-o"></i> Date Debut: </label>
+       
+     <input type="text" class="form-control" ng-model="search.dateDebutPayment" data-date-format="yyyy-MM-dd" data-date-type="date" data-autoclose="1" name="date2" cs-date-to-iso bs-datepicker   >   
+
+        
+      </div> 
+  </div>
+
+
+  <div class="col-md-4" style="visibility: hidden">
+    <div class="form-group" ng-class="{'has-error': datepickerForm.date2.$invalid}">
+        <label class="control-label pull-left"><i class="fa fa-calendar-o"></i> Date Fin: </label>
+        <input  type="text" class="form-control" ng-model="search.dateFinPayment" data-date-format="yyyy-MM-dd" data-date-type="date" data-autoclose="1" name="date2" cs-date-to-iso bs-datepicker value='2018-09-01'>
+      </div>
+  </div>
+
+  
+
+  <div class="col-md-4">
+  
+
+   <!--  <b>Opération : </b><br/>  -->
+
+     <div class="btn-group" ng-model="radios" bs-radio-group  style="visibility: hidden"    >
+        <label class="btn btn-default"><input type="radio" class="btn btn-default" value="all" checked=""> Tous</label>
+        <label class="btn btn-default"><input type="radio" class="btn btn-default" value="s"> S</label>
+        <label class="btn btn-default"><input type="radio" class="btn btn-default" value="c"> C</label>
+        <label class="btn btn-default"><input type="radio" class="btn btn-default" value="p"> P</label>
+        <label class="btn btn-default"><input type="radio" class="btn btn-default" value="g"> G</label>
+        <label class="btn btn-default"><input type="radio" class="btn btn-default" value="a"> A</label>
+     </div>
+ 
+  </div>
+   
+
+
+
+   
+</div>
+<br>
+
+   
+
+<h3 align="center"><b>Facture N°: <b ng-bing="id">{{id}}</b></b></h3>
+ 
+<br/>
+
+    
+    <h4  >Nom:     <b>{{facture.firstname}}</b></h4>
+    <h4  >Prenom:  <b>{{facture.lastname}} </b></h4>
+    <h4  >Niveau:  <b>{{facture._levelId}} </b></h4>
+    <h4  >Classe:  <b>{{facture.class}} </b></h4>
+
+<table ng-table="tableParams"  class="table" border="1" >
+
+     <tr ng-repeat="payment in $data">
+ 
+          <td title="'Produits'" class="ng-table-group" style="width:10%;">
+          
+            <b ng-if="payment.currentPayedProd.t0.length!=0">T0:</b>
+            <span ng-repeat="prod in payment.currentPayedProd.t0" ng-if="radios=='all'||radios==prod.product">
+              {{prod.product}} 
+            </span>
+
+
+             <br ng-if="payment.currentPayedProd.t0.length!=0"/>
+
+            <b ng-if="payment.currentPayedProd.t1.length!=0">T1:</b>
+            <span ng-repeat="prod in payment.currentPayedProd.t1" ng-if="radios=='all'||radios==prod.product">
+              {{prod.product}} 
+            </span>
+
+
+            <br ng-if="payment.currentPayedProd.t1.length!=0"/>
+
+            <b ng-if="payment.currentPayedProd.t2.length!=0">T2:</b>
+            <span ng-repeat="prod in payment.currentPayedProd.t2" ng-if="radios=='all'||radios==prod.product">
+              {{prod.product}} 
+            </span>
+
+            <br ng-if="payment.currentPayedProd.t2.length!=0"/>
+
+            <b ng-if="payment.currentPayedProd.t3.length!=0">T3:</b>
+            <span ng-repeat="prod in payment.currentPayedProd.t3" ng-if="radios=='all'||radios==prod.product">
+              {{prod.product}} 
+            </span>
+           
+          </td>
+
+        
+
+          <td title="'Date'" class="ng-table-group">
+           {{payment.datePayment | date:"dd/MM/yyyy"}}
+          </td>
+
+         <td title="'Montant'" class="ng-table-group" >
+          <span ng-if="radios=='all'"> {{payment.payedAmount}}</span>
+
+          <span ng-if="radios!='all'">
+              <b ng-if="payment.currentPayedProd.t0.length!=0">T0:</b>
+              <span ng-repeat="prod in payment.currentPayedProd.t0" ng-if="radios=='all'||radios==prod.product">
+                {{prod.price}} 
+              </span>
+              
+              <br ng-if="payment.currentPayedProd.t0.length!=0"/>
+
+              <b ng-if="payment.currentPayedProd.t1.length!=0">T1:</b>
+              <span ng-repeat="prod in payment.currentPayedProd.t1" ng-if="radios=='all'||radios==prod.product">
+                {{prod.price}} 
+              </span>
+
+
+              <br ng-if="payment.currentPayedProd.t1.length!=0"/>
+
+              <b ng-if="payment.currentPayedProd.t2.length!=0">T2:</b>
+              <span ng-repeat="prod in payment.currentPayedProd.t2" ng-if="radios=='all'||radios==prod.product">
+                {{prod.price}} 
+              </span>
+
+              <br ng-if="payment.currentPayedProd.t2.length!=0"/>
+
+              <b ng-if="payment.currentPayedProd.t3.length!=0">T3:</b>
+              <span ng-repeat="prod in payment.currentPayedProd.t3" ng-if="radios=='all'||radios==prod.product">
+                {{prod.price}} 
+              </span>
+          </span>
+
+          </td>
+          
+        </tr>
+
+ 
+</table>
+
+<br/>
+
+
+</div >
+ 
+<div style="margin-left:65%;"> 
+        <b><b>TOTAL payé HT :</b><b>{{totalht}}</b></b><br/>
+        <b>TAXE:</b><b> {{tax}}%</b><br/>
+        <b><b>TOTAL payé TTC :</b><b>{{rtotale}}</b></b><br/>
+        <b>Frais timbre :</b><b> {{timbre}}DT</b><br>
+        <b>Net à payer :</b><b> {{netapayer}}DT</b><br>
+</div>

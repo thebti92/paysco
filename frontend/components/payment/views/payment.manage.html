@@ -1,0 +1,85 @@
+
+
+<br/><br/>
+<table ng-table="tableParamsPayment"  class="table table-bordered table-hover">
+     <tr ng-repeat="payment in $data">
+        
+         <td title="'Niveau'" class="ng-table-group" filter="{ '_levelId': 'select' }" filter-data="levels" sortable="'_levelId'">
+           {{payment._levelId}}
+         </td>
+
+          <td title="'Classe'" class="ng-table-group" filter="{ 'class': 'select' }" filter-data="classes" sortable="'class'">
+           {{payment.class}}
+          </td>
+
+
+          <td title="'Nom'" class="ng-table-group" filter="{ 'firstname': 'text' }" sortable="'firstname'">
+           {{payment.firstname}}
+          </td>
+
+         <td title="'Prenom'" class="ng-table-group" filter="{ 'lastname': 'text' }" sortable="'lastname'">
+           {{payment.lastname}}
+        </td>
+
+
+          <td title="'mode de Paiement'" class="ng-table-group" filter="{ 'modePay': 'text' }" sortable="'modePay'">
+           {{payment.modePay}}
+          </td>
+
+         <td title="'Produits'" class="ng-table-group" style="width:10%;">
+          
+            <b ng-if="payment.currentPayedProd.t0.length!=0">T0:</b>
+            <span ng-repeat="prod in payment.currentPayedProd.t0" >
+              {{prod.product}} 
+            </span>
+
+
+            <br ng-if="payment.currentPayedProd.t0.length!=0"/>
+
+            <b ng-if="payment.currentPayedProd.t1.length!=0">T1:</b>
+            <span ng-repeat="prod in payment.currentPayedProd.t1">
+              {{prod.product}} 
+            </span>
+
+
+            <br ng-if="payment.currentPayedProd.t1.length!=0"/>
+
+            <b ng-if="payment.currentPayedProd.t2.length!=0">T2:</b>
+            <span ng-repeat="prod in payment.currentPayedProd.t2">
+              {{prod.product}} 
+            </span>
+
+            <br ng-if="payment.currentPayedProd.t2.length!=0"/>
+
+            <b ng-if="payment.currentPayedProd.t3.length!=0">T3:</b>
+            <span ng-repeat="prod in payment.currentPayedProd.t3">
+              {{prod.product}} 
+            </span>
+           
+          </td>
+
+
+      
+
+        <td title="'datePayment'" class="ng-table-group" filter="{ 'datePayment': 'text' }" sortable="'datePayment'">
+           {{payment.datePayment}}
+        </td>
+
+         <td title="'Espece payé'" class="ng-table-group" filter="{ 'brutAmout': 'text' }" sortable="'brutAmout'">
+           {{payment.amount.brutAmount}} 
+        </td>
+
+
+         <td title="'Operation'">
+             <button ng-click="loadEditedPayment(payment)" type="button" class="btn btn-default" data-animation="am-fade-and-scale">
+                 <i class="fa fa-pencil-square-o"></i>
+             </button>
+
+             <button ng-click="loadDeletedPayment(payment)" type="button" class="btn btn-danger" data-animation="am-fade-and-scale" data-template="frontend/components/payment/views/payment.confirm.html" data-placement="center" bs-modal="modal">
+                 <i class="fa fa-trash"></i> 
+             </button>
+
+
+         </td>
+     </tr>
+</table>
