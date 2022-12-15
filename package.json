@@ -17,7 +17,7 @@
     "connect-flash": "latest",
     "cookie-parser": "latest",
     "ejs": "latest",
-    "express": "~4.5.1",
+    "express": "~4.17.3",
     "express-session": "latest",
     "method-override": "latest",
     "morgan": "latest",
